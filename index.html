@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电视品牌欧洲区 KOL 数据洞察</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f6f5f2;--surface:#ffffff;--surface-2:#f1f0ec;--line:#e4e2dc;
+  --ink:#141413;--ink-2:#55534e;--ink-3:#8a8780;
+  --accent:#c8102e;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;
+  --seq-0:#f1f0ec;--seq-1:#cde2fb;--seq-2:#9ec5f4;--seq-3:#5598e7;--seq-4:#256abf;--seq-5:#104281;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#2f2f2c;
+  --ink:#f0efec;--ink-2:#c3c2b7;--ink-3:#8f8d86;--accent:#ff4d5e;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;
+  --seq-0:#232321;--seq-1:#184f95;--seq-2:#1c5cab;--seq-3:#2a78d6;--seq-4:#5598e7;--seq-5:#9ec5f4;}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--bg:#121211;--surface:#1a1a19;--surface-2:#232321;--line:#2f2f2c;
+  --ink:#f0efec;--ink-2:#c3c2b7;--ink-3:#8f8d86;--accent:#ff4d5e;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;
+  --seq-0:#232321;--seq-1:#184f95;--seq-2:#1c5cab;--seq-3:#2a78d6;--seq-4:#5598e7;--seq-5:#9ec5f4;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header.hero{padding:56px 0 36px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+h1{font-size:40px;line-height:1.15;margin:10px 0 12px;font-weight:700;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{color:var(--ink-2);max-width:760px;margin:0}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:var(--ink-3)}
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+nav.toc a{white-space:nowrap;text-decoration:none;font-size:13px;color:var(--ink-2);padding:6px 12px;border-radius:999px}
+nav.toc a:hover{background:var(--surface-2);color:var(--ink)}
+section{padding:48px 0 8px}
+.sec-no{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.1em}
+h2{font-size:24px;margin:4px 0 6px;font-weight:700}
+.lead{color:var(--ink-2);margin:0 0 22px;max-width:820px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{font-size:15px;margin:0 0 4px;font-weight:650}
+.card .note{font-size:12px;color:var(--ink-3);margin:0 0 14px}
+.kpi .v{font-size:32px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:13px;color:var(--ink-2)}
+.kpi .d{font-size:12px;color:var(--ink-3);margin-top:6px}
+.concl{counter-reset:c;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+.concl .card{position:relative;padding-left:56px}
+.concl .card:before{counter-increment:c;content:counter(c,decimal-leading-zero);position:absolute;left:20px;top:20px;font-weight:700;color:var(--accent);font-size:14px}
+.concl .card:last-child:nth-child(odd){grid-column:1/-1}
+.kwc{display:inline-block;margin:4px 6px 0 0;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink);font-size:13px}
+.concl h4{margin:0 0 6px;font-size:15px}.concl p{margin:0;color:var(--ink-2);font-size:14px;line-height:1.7}
+@media(max-width:760px){.concl{grid-template-columns:1fr}}
+.insight{border-left:3px solid var(--accent);padding:10px 14px;background:var(--surface);border-radius:0 10px 10px 0;margin:16px 0 0;color:var(--ink-2);font-size:14px}
+.insight b{color:var(--ink)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-bottom:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+svg text{fill:var(--ink-2);font-size:11px;font-family:inherit}
+svg .lbl{fill:var(--ink);font-size:12px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:7px 10px;border-radius:8px;opacity:0;transition:opacity .08s;z-index:20;max-width:280px;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;color:var(--ink-3);font-size:12px;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.heat td.c{text-align:center;font-variant-numeric:tabular-nums;border-radius:6px;border:2px solid var(--surface)}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);margin:1px 4px 1px 0;white-space:nowrap}
+.pill.yt{background:color-mix(in srgb,#e34948 14%,transparent);color:var(--ink)}
+.pill.ig{background:color-mix(in srgb,#e87ba4 18%,transparent);color:var(--ink)}
+.pill.tt{background:color-mix(in srgb,#1baf7a 16%,transparent);color:var(--ink)}
+.pill.ok{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--ink);font-weight:600}
+.prio{font-weight:700;font-size:12px;display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:6px;background:var(--surface-2)}
+.prio.A{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.filters button,.filters select,.filters input{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filters input{border-radius:10px;cursor:text;min-width:200px}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+td.num{white-space:nowrap}
+.collab a{display:block;font-size:12px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.collab a:hover{color:var(--accent)}
+.name a{font-weight:600;text-decoration:none}
+.name a:hover{color:var(--accent)}
+.muted{color:var(--ink-3)}
+.scroll{overflow-x:auto}
+footer{padding:40px 0 60px;color:var(--ink-3);font-size:12px;border-top:1px solid var(--line);margin-top:48px}
+.bar-bg{fill:var(--surface-2)}
+.theme-btn{position:fixed;right:16px;bottom:16px;z-index:9;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 12px;font-size:12px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="tip" id="tip"></div>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">WOTOKOL · Europe TV Brands</div>
+  <h1>电视品牌欧洲区 KOL <em>数据洞察</em></h1>
+  <p class="sub">基于 TCL 及 Hisense、Samsung、LG、Sony 近 12 个月在欧洲市场的社媒内容数据，梳理欧洲竞品博主布局、平台表现与可合作资源。</p>
+  <div class="meta"><span id="m-period"></span><span>覆盖 YouTube · Instagram · TikTok</span><span>数据来源：WOTOHUB by WOTO AM 小雨</span></div>
+</div></header>
+<nav class="toc"><div class="wrap">
+  <a href="#s1">数据概览</a><a href="#s2">竞品欧洲布局</a><a href="#s3">TCL 欧洲内容现状</a><a href="#s4">竞品博主机会池</a><a href="#s5">平台与粉丝层级表现</a><a href="#s6">核心结论</a>
+</div></nav>
+<main class="wrap">
+
+<section id="s1">
+  <div class="sec-no">01</div><h2>数据概览</h2>
+  <p class="lead">以下数据范围均为欧洲市场。</p>
+  <div class="grid g4" id="kpis"></div>
+</section>
+
+<section id="s2">
+  <div class="sec-no">02</div><h2>竞品欧洲布局</h2>
+  <p class="lead">各品牌欧洲合作博主的国家分布、平台结构与内容方向。</p>
+  <div class="grid g2">
+    <div class="card"><h3>欧洲博主国家分布</h3><p class="note">各品牌欧洲博主中，来自各国家/区域的占比</p><div id="heat" class="scroll"></div></div>
+    <div class="card"><h3>欧洲博主平台结构</h3><p class="note">各品牌欧洲博主中，在各平台发布内容的占比</p><div class="legend" id="plat-leg"></div><div id="platmix"></div></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>内容方向结构</h3><p class="note">各品牌欧洲内容中，涉及各内容方向的占比</p><div class="legend" id="cm-leg"></div><div id="cmix"></div></div>
+  <div class="insight" id="ins2"></div>
+</section>
+
+<section id="s3">
+  <div class="sec-no">03</div><h2>TCL 欧洲内容现状</h2>
+  <p class="lead">近 12 个月 TCL 在欧洲的博主内容分布、月度发布节奏与代表性内容。</p>
+  <div class="grid g3" id="tcl-kpi"></div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>各国家/区域博主数</h3><p class="note">发布过 TCL 相关内容的欧洲博主</p><div id="tcl-region"></div></div>
+    <div class="card"><h3>月度内容发布量</h3><p class="note">TCL 欧洲博主内容条数</p><div id="tcl-trend"></div></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>TCL 欧洲高曝光博主</h3><p class="note">按单条最高曝光排序</p><div class="scroll"><table id="tcl-top"></table></div></div>
+  <div class="insight" id="ins3"></div>
+</section>
+
+<section id="s4">
+  <div class="sec-no">04</div><h2>竞品博主机会池</h2>
+  <p class="lead">与竞品合作过、但尚未发布 TCL 内容的欧洲博主，是 TCL 拓展合作的直接切入点。</p>
+  <div class="grid g4" id="opp-kpi"></div>
+  <div class="card" style="margin-top:16px"><h3>重点机会博主</h3><p class="note">综合播放表现、电视内容深度与合作品牌数排序</p><div class="scroll"><table id="opp"></table></div></div>
+  <div class="insight"><b>关键发现：</b>机会池中仅与竞品合作的博主达 1,732 位，Samsung 与 Sony 侧分别为 549 位与 536 位，Hisense 侧 493 位；重点机会博主以法国、意大利、英国为主，TikTok 博主占 18 位；其中 7 位同时与两个及以上竞品合作，品类合作经验丰富，可优先接洽。</div>
+</section>
+
+<section id="s5">
+  <div class="sec-no">05</div><h2>平台与粉丝层级表现</h2>
+  <p class="lead">欧洲各国家各平台的单条内容播放中位数，可用于预算在平台与博主层级之间的分配。</p>
+  <div class="grid g2">
+    <div class="card"><h3>各国家/区域平台播放中位数</h3><p class="note">欧洲各国家/区域单条内容播放中位数</p><div id="eff" class="scroll"></div></div>
+    <div class="card"><h3>粉丝层级与播放中位数</h3><p class="note">欧洲博主按粉丝量分层的单条内容播放中位数</p><div class="legend" id="tier-leg"></div><div id="tier"></div></div>
+  </div>
+  <div class="insight" id="ins5"></div>
+</section>
+
+
+
+<section id="s6">
+  <div class="sec-no">06</div><h2>核心结论</h2>
+  <div class="concl"><div class="card"><h4>主战场集中于法、德、意</h4><p>五个品牌的欧洲博主均以法国、德国、意大利为核心，TCL 三国合计约 65%，与竞品格局一致，属于必须守住的基本盘。</p></div><div class="card"><h4>英国及波兰、中欧、南欧存在布局缺口</h4><p>TCL 英国博主占比 7%，低于 Hisense（9%）、LG（10%）、Sony（11%）；波兰、中欧、南欧占比仅 4%–6%，Hisense 在这三地为 7%–10%，覆盖明显更广。</p></div><div class="card"><h4>Hisense 是电视赛道最直接的对手</h4><p>Hisense 欧洲内容中电视/家庭影院占 42%，高于 TCL 的 31% 与 LG 的 25%；Samsung 偏手机数码（49%），Sony 偏游戏（15%），电视博主资源争夺主要发生在 TCL 与 Hisense、LG 之间。</p></div><div class="card"><h4>竞品博主是最大的增量池</h4><p>1,732 位欧洲博主仅与竞品合作、尚未发布 TCL 内容，其中 Samsung、Sony 侧各超过 530 位，以数码、游戏、生活方式博主为主，可作为电视场景化内容的拓展来源。</p></div><div class="card"><h4>YouTube 是英、法、意的高效平台</h4><p>英国 YouTube 单条播放中位数 3.4 万，约为当地 Instagram、TikTok 的 8–10 倍；而 TCL 欧洲博主中 YouTube 仅占 22%，低于 Hisense 的 27%。</p></div><div class="card"><h4>发布节奏与大促、赛事强相关</h4><p>TCL 欧洲内容在 2025-11（黑五）与 2026-06（世界杯）形成两个高峰，4–5 月与 8 月回落至高峰期的三分之一左右，存在明显的声量断档。</p></div></div>
+</section>
+
+</main>
+<footer><div class="wrap">WOTOKOL 卧兔 · 数据来源 WOTOHUB by WOTO AM 小雨 · 统计周期 <span id="f-period"></span></div></footer>
+<button class="theme-btn" id="themeBtn">切换深色/浅色</button>
+<script>
+const D = {"kpi": {"videos_all": 72908, "creators_all": 31994, "eu_videos": 4580, "eu_creators": 2251, "eu_views": 2131422274.7565622, "countries": 27, "period": "2025-10-28 至 2026-10-26"}, "brands": [{"brand": "TCL", "creators": 519, "videos": 1106, "tv_share": 0.3128390596745027, "plat": {"YouTube": 435, "Instagram": 393, "TikTok": 278}, "eu_share": 0.08976132826011761, "region_share": {"英国": 0.06551059730250482, "法国": 0.2909441233140655, "德国": 0.17726396917148363, "意大利": 0.1791907514450867, "西班牙": 0.04816955684007707, "波兰": 0.04046242774566474, "荷比": 0.02119460500963391, "北欧": 0.03468208092485549, "中欧": 0.04046242774566474, "中东欧": 0.04431599229287091, "南欧": 0.057803468208092484}, "plat_share": {"YouTube": 0.21965317919075145, "Instagram": 0.44315992292870904, "TikTok": 0.3371868978805395}, "top_regions": ["法国", "意大利", "德国"]}, {"brand": "Hisense", "creators": 565, "videos": 1262, "tv_share": 0.41996830427892234, "plat": {"YouTube": 510, "Instagram": 419, "TikTok": 333}, "eu_share": 0.11388832896593429, "region_share": {"英国": 0.08849557522123894, "法国": 0.19823008849557522, "德国": 0.15575221238938053, "意大利": 0.16460176991150444, "西班牙": 0.021238938053097345, "波兰": 0.0743362831858407, "荷比": 0.03185840707964602, "北欧": 0.023008849557522124, "中欧": 0.07610619469026549, "中东欧": 0.06548672566371681, "南欧": 0.10088495575221239}, "plat_share": {"YouTube": 0.27079646017699116, "Instagram": 0.4230088495575221, "TikTok": 0.30619469026548674}, "top_regions": ["法国", "意大利", "德国"]}, {"brand": "Samsung", "creators": 577, "videos": 959, "tv_share": 0.045881126173096975, "plat": {"YouTube": 163, "Instagram": 403, "TikTok": 393}, "eu_share": 0.08036211699164346, "region_share": {"英国": 0.07452339688041594, "法国": 0.23570190641247835, "德国": 0.19064124783362218, "意大利": 0.12478336221837089, "西班牙": 0.025996533795493933, "波兰": 0.045060658578856154, "荷比": 0.03986135181975736, "北欧": 0.03466204506065858, "中欧": 0.07625649913344887, "中东欧": 0.08145580589254767, "南欧": 0.07105719237435008}, "plat_share": {"YouTube": 0.11091854419410745, "Instagram": 0.464471403812825, "TikTok": 0.4246100519930676}, "top_regions": ["法国", "德国", "意大利"]}, {"brand": "LG", "creators": 215, "videos": 274, "tv_share": 0.2518248175182482, "plat": {"YouTube": 69, "Instagram": 113, "TikTok": 92}, "eu_share": 0.026203534430225474, "region_share": {"英国": 0.09767441860465116, "法国": 0.09302325581395349, "德国": 0.5116279069767442, "意大利": 0.06976744186046512, "西班牙": 0.023255813953488372, "波兰": 0.027906976744186046, "荷比": 0.004651162790697674, "北欧": 0.07441860465116279, "中欧": 0.018604651162790697, "中东欧": 0.06046511627906977, "南欧": 0.018604651162790697}, "plat_share": {"YouTube": 0.2, "Instagram": 0.42790697674418604, "TikTok": 0.37209302325581395}, "top_regions": ["德国", "英国", "法国"]}, {"brand": "Sony", "creators": 556, "videos": 979, "tv_share": 0.026557711950970377, "plat": {"YouTube": 216, "Instagram": 441, "TikTok": 322}, "eu_share": 0.07121813756884847, "region_share": {"英国": 0.11151079136690648, "法国": 0.22482014388489208, "德国": 0.20503597122302158, "意大利": 0.19424460431654678, "西班牙": 0.03776978417266187, "波兰": 0.048561151079136694, "荷比": 0.030575539568345324, "北欧": 0.019784172661870502, "中欧": 0.05755395683453238, "中东欧": 0.04136690647482014, "南欧": 0.02877697841726619}, "plat_share": {"YouTube": 0.11690647482014388, "Instagram": 0.4442446043165468, "TikTok": 0.43884892086330934}, "top_regions": ["法国", "德国", "意大利"]}], "plat_eff": {"英国": {"YouTube": 33690.0, "Instagram": 3304.0, "TikTok": 3925.0}, "法国": {"YouTube": 39814.0, "Instagram": 3103.04179805661, "TikTok": 17001.0}, "德国": {"YouTube": 9921.0, "Instagram": 4741.966067644774, "TikTok": 26052.5}, "意大利": {"YouTube": 29160.0, "Instagram": 8003.848989150556, "TikTok": 10451.5}, "西班牙": {"YouTube": 29601.5, "Instagram": 10466.0, "TikTok": 23841.0}, "波兰": {"YouTube": 25135.0, "Instagram": 1378.5, "TikTok": 20364.0}, "荷比": {"YouTube": null, "Instagram": 3399.0, "TikTok": 5016.0}, "北欧": {"YouTube": 9157.5, "Instagram": 18352.0, "TikTok": 7625.5}, "中欧": {"YouTube": 28182.0, "Instagram": 9442.0, "TikTok": 24483.0}, "中东欧": {"YouTube": 30823.0, "Instagram": 1003.0, "TikTok": 11061.0}, "南欧": {"YouTube": 14888.0, "Instagram": 1819.5847192792687, "TikTok": 16890.0}}, "content_mix": {"TCL": {"电视/家庭影院": 0.3128390596745027, "游戏": 0.0379746835443038, "手机/数码": 0.08951175406871609, "家电/智能家居": 0.012658227848101266, "测评/开箱": 0.08499095840867993, "生活方式/家居": 0.16636528028933092}, "Hisense": {"电视/家庭影院": 0.41996830427892234, "游戏": 0.042789223454833596, "手机/数码": 0.022979397781299524, "家电/智能家居": 0.08478605388272584, "测评/开箱": 0.08003169572107766, "生活方式/家居": 0.1648177496038035}, "Samsung": {"电视/家庭影院": 0.045881126173096975, "游戏": 0.018769551616266946, "手机/数码": 0.49009384775808135, "家电/智能家居": 0.013555787278415016, "测评/开箱": 0.10636079249217935, "生活方式/家居": 0.19395203336809178}, "LG": {"电视/家庭影院": 0.2518248175182482, "游戏": 0.05474452554744526, "手机/数码": 0.15693430656934307, "家电/智能家居": 0.029197080291970802, "测评/开箱": 0.12043795620437957, "生活方式/家居": 0.10948905109489052}, "Sony": {"电视/家庭影院": 0.026557711950970377, "游戏": 0.1481103166496425, "手机/数码": 0.11440245148110317, "家电/智能家居": 0.0040858018386108275, "测评/开箱": 0.049029622063329927, "生活方式/家居": 0.13074565883554648}}, "months": ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"], "overlap": {"tcl": 519, "comp_only": 1732, "multi": 147, "shared_with_tcl": 108, "per_brand_not_tcl": {"Hisense": 493, "Samsung": 549, "LG": 198, "Sony": 536}}, "tier_med": {"YouTube": {"<5万": 9165.25, "5–10万": 27995.0, "10–30万": 31201.0, "30–100万": 52191.0, "100万+": 66712.0}, "Instagram": {"<5万": 1898.0, "5–10万": 18293.324945611217, "10–30万": 33948.5, "30–100万": 92083.0, "100万+": 140868.5}, "TikTok": {"<5万": 5246.0, "5–10万": 14427.5, "10–30万": 16777.75, "30–100万": 49998.0, "100万+": 106307.0}}, "tier_labels": ["<5万", "5–10万", "10–30万", "30–100万", "100万+"], "opp": [{"name": "Mrwhosetheboss", "link": "https://www.youtube.com/@mrwhosetheboss", "plat": "YouTube", "country": "英国", "fl": 23000000.0, "brands": "Hisense/Samsung/Sony", "n": 15, "tv": 1, "med": 4063105.0, "mx": 10682959.0, "best": "https://www.youtube.com/watch?v=Eo5w2S-h5dI"}, {"name": "Julien Ardid", "link": "https://www.tiktok.com/@ardidprod", "plat": "TikTok", "country": "法国", "fl": 316089.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 25928325.0, "mx": 25928325.0, "best": "https://tiktok.com/@tiktok/video/7626804516419177750"}, {"name": "ElisaL", "link": "https://www.tiktok.com/@elisalevallois", "plat": "TikTok", "country": "法国", "fl": 76998.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 21531170.0, "mx": 21531170.0, "best": "https://tiktok.com/@tiktok/video/7659048350397828384"}, {"name": "WhatGear", "link": "https://www.youtube.com/@whatgear", "plat": "YouTube", "country": "英国", "fl": 477000.0, "brands": "LG/Samsung/Sony", "n": 4, "tv": 2, "med": 841317.5, "mx": 1075316.0, "best": "https://www.youtube.com/watch?v=7EPlGbUACto"}, {"name": "irene☆", "link": "https://www.tiktok.com/@patatapie", "plat": "TikTok", "country": "西班牙", "fl": 69400.0, "brands": "Samsung", "n": 2, "tv": 0, "med": 20228553.0, "mx": 33661037.0, "best": "https://tiktok.com/@tiktok/video/7570309719743646998"}, {"name": "bol.gaming", "link": "https://www.tiktok.com/@bol.gaming", "plat": "TikTok", "country": "荷兰", "fl": 129619.0, "brands": "LG/Sony", "n": 7, "tv": 3, "med": 628798.0, "mx": 1465738.0, "best": "https://tiktok.com/@tiktok/video/7644581558812200224"}, {"name": "Inès🎀", "link": "https://www.tiktok.com/@inesbombshell", "plat": "TikTok", "country": "法国", "fl": 602497.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 18667618.0, "mx": 18667618.0, "best": "https://tiktok.com/@tiktok/video/7657306187997678880"}, {"name": "M A R V I N", "link": "https://www.tiktok.com/@marvinmachts", "plat": "TikTok", "country": "德国", "fl": 106257.0, "brands": "Hisense", "n": 1, "tv": 1, "med": 7260817.0, "mx": 7260817.0, "best": "https://tiktok.com/@tiktok/video/7651600340286033185"}, {"name": "Enzo", "link": "https://www.tiktok.com/@enzotaistoi", "plat": "TikTok", "country": "法国", "fl": 3209550.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 18130870.0, "mx": 18130870.0, "best": "https://tiktok.com/@tiktok/video/7655764916531383584"}, {"name": "Nathan Lust", "link": "https://www.tiktok.com/@nathanlust", "plat": "TikTok", "country": "英国", "fl": 6534222.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 16826037.0, "mx": 16826037.0, "best": "https://tiktok.com/@tiktok/video/7638015488232131861"}, {"name": "Alex", "link": "https://www.tiktok.com/@fumoalento", "plat": "TikTok", "country": "意大利", "fl": 217776.0, "brands": "Hisense/LG/Samsung/Sony", "n": 22, "tv": 2, "med": 637532.5, "mx": 2082652.0, "best": "https://www.tiktok.com/@tiktok/video/7607085695621991702"}, {"name": "congTECH", "link": "https://www.youtube.com/@congtech", "plat": "YouTube", "country": "德国", "fl": 129000.0, "brands": "LG", "n": 1, "tv": 1, "med": 5474691.0, "mx": 5474691.0, "best": "https://www.youtube.com/watch?v=F3t8ixpz6gM"}, {"name": "JULES KOUNDE", "link": "https://www.instagram.com/jkeey4", "plat": "Instagram", "country": "法国", "fl": 5997063.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 12453855.1778485, "mx": 12453855.1778485, "best": "https://www.instagram.com/p/DR5Cp3pim8l"}, {"name": "Everyeye", "link": "https://www.youtube.com/@everyeye", "plat": "YouTube", "country": "意大利", "fl": 359000.0, "brands": "Samsung", "n": 1, "tv": 1, "med": 4721420.0, "mx": 4721420.0, "best": "https://www.youtube.com/watch?v=xznzO3xfC7o"}, {"name": "Jaane Kaise", "link": "https://www.youtube.com/@jaanekaise9250", "plat": "YouTube", "country": "爱沙尼亚", "fl": 115000.0, "brands": "Samsung", "n": 1, "tv": 1, "med": 4706582.0, "mx": 4706582.0, "best": "https://www.youtube.com/watch?v=ApUZfpD1Y_A"}, {"name": "Keepupwithjacob", "link": "https://www.tiktok.com/@keepupwithjacob", "plat": "TikTok", "country": "爱尔兰", "fl": 2342501.0, "brands": "Sony", "n": 1, "tv": 0, "med": 11135156.0, "mx": 11135156.0, "best": "https://tiktok.com/@tiktok/video/7632388473206443286"}, {"name": "Miminette Games", "link": "https://www.youtube.com/@miminettegames", "plat": "YouTube", "country": "法国", "fl": 92400.0, "brands": "Sony", "n": 1, "tv": 0, "med": 10781810.0, "mx": 10781810.0, "best": "https://www.youtube.com/watch?v=i3jM-nvoq-U"}, {"name": "CLEO TOMS", "link": "https://www.tiktok.com/@cleotoms", "plat": "TikTok", "country": "意大利", "fl": 458228.0, "brands": "Samsung", "n": 1, "tv": 1, "med": 4065952.0, "mx": 4065952.0, "best": "https://tiktok.com/@tiktok/video/7688738265465179425"}, {"name": "luke", "link": "https://www.tiktok.com/@whealex", "plat": "TikTok", "country": "英国", "fl": 63953.0, "brands": "Sony", "n": 1, "tv": 1, "med": 3980870.0, "mx": 3980870.0, "best": "https://tiktok.com/@tiktok/video/7649807637680262422"}, {"name": "Fatty plays mobile phone", "link": "https://www.youtube.com/@fattyplaysmobilephone", "plat": "YouTube", "country": "意大利", "fl": 33400.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 8836970.0, "mx": 8836970.0, "best": "https://www.youtube.com/watch?v=I6wBFRw9rsI"}, {"name": "lea waldberg", "link": "https://www.tiktok.com/@leawaldberg", "plat": "TikTok", "country": "法国", "fl": 324700.0, "brands": "Samsung", "n": 2, "tv": 0, "med": 8760366.5, "mx": 16857696.0, "best": "https://tiktok.com/@tiktok/video/7654964919879601441"}, {"name": "Matthieu Bobard Deliere", "link": "https://www.tiktok.com/@matthieubobarddeliere", "plat": "TikTok", "country": "法国", "fl": 229646.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 8332060.0, "mx": 8332060.0, "best": "https://tiktok.com/@tiktok/video/7652393179584482592"}, {"name": "BLASTERTECHNOLOGY", "link": "https://www.youtube.com/@blastertechnology", "plat": "YouTube", "country": "罗马尼亚", "fl": 250000.0, "brands": "LG/Sony", "n": 3, "tv": 2, "med": 648202.0, "mx": 2242406.0, "best": "https://www.youtube.com/watch?v=Y95LzGdAbKk"}, {"name": "Moschuss", "link": "https://www.tiktok.com/@moschuss1", "plat": "TikTok", "country": "德国", "fl": 76400.0, "brands": "Hisense/Sony", "n": 2, "tv": 1, "med": 1547546.5, "mx": 3084470.0, "best": "https://tiktok.com/@tiktok/video/7600113837823577366"}, {"name": "Silvia Fascians 💪🏽🌙 | Trainer & wellness creator", "link": "https://www.instagram.com/silvia.fascians", "plat": "Instagram", "country": "意大利", "fl": 225350.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 7171949.0, "mx": 7171949.0, "best": "https://www.instagram.com/p/DSm2I8bjAD7"}, {"name": "RoukBS", "link": "https://www.tiktok.com/@roukbs", "plat": "TikTok", "country": "法国", "fl": 305634.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 6945682.0, "mx": 6945682.0, "best": "https://tiktok.com/@tiktok/video/7580067878003559702"}, {"name": "RoukFR", "link": "https://www.tiktok.com/@roukfr", "plat": "TikTok", "country": "法国", "fl": 277237.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 6459584.0, "mx": 6459584.0, "best": "https://tiktok.com/@tiktok/video/7566229802986851606"}, {"name": "Tymbark", "link": "https://www.tiktok.com/@tymbark", "plat": "TikTok", "country": "波兰", "fl": 229813.0, "brands": "Samsung", "n": 1, "tv": 0, "med": 6155048.0, "mx": 6155048.0, "best": "https://tiktok.com/@tiktok/video/7604818459041484054"}, {"name": "Geek Street", "link": "https://www.youtube.com/@geekstreet", "plat": "YouTube", "country": "英国", "fl": 637000.0, "brands": "Hisense/LG", "n": 5, "tv": 2, "med": 484533.0, "mx": 1283513.0, "best": "https://www.youtube.com/watch?v=v9DTG4ZJZLg"}, {"name": "Preetam soni", "link": "https://www.youtube.com/@preetamsonix", "plat": "YouTube", "country": "意大利", "fl": 50000.0, "brands": "Sony", "n": 1, "tv": 0, "med": 6068414.0, "mx": 6068414.0, "best": "https://www.youtube.com/watch?v=r4BFVyFENpk"}], "plat_eff_n": {"英国": {"YouTube": 207, "Instagram": 89, "TikTok": 111}, "法国": {"YouTube": 143, "Instagram": 212, "TikTok": 145}, "德国": {"YouTube": 135, "Instagram": 104, "TikTok": 82}, "意大利": {"YouTube": 63, "Instagram": 134, "TikTok": 98}, "西班牙": {"YouTube": 52, "Instagram": 41, "TikTok": 19}, "波兰": {"YouTube": 123, "Instagram": 26, "TikTok": 23}, "荷比": {"YouTube": 6, "Instagram": 19, "TikTok": 25}, "北欧": {"YouTube": 12, "Instagram": 12, "TikTok": 16}, "中欧": {"YouTube": 157, "Instagram": 39, "TikTok": 15}, "中东欧": {"YouTube": 36, "Instagram": 39, "TikTok": 44}, "南欧": {"YouTube": 11, "Instagram": 97, "TikTok": 33}}, "tier_n": {"YouTube": {"<5万": 94, "5–10万": 31, "10–30万": 51, "30–100万": 40, "100万+": 15}, "Instagram": {"<5万": 277, "5–10万": 58, "10–30万": 70, "30–100万": 43, "100万+": 6}, "TikTok": {"<5万": 170, "5–10万": 31, "10–30万": 54, "30–100万": 50, "100万+": 22}}, "tcl": {"creators": 519, "videos": 1106, "views": 95366382.50531805, "region": {"英国": 34, "法国": 151, "德国": 92, "意大利": 93, "西班牙": 25, "波兰": 21, "荷比": 11, "北欧": 18, "中欧": 21, "中东欧": 23, "南欧": 30}, "plat": {"YouTube": 114, "Instagram": 230, "TikTok": 175}, "trend": [149, 129, 109, 90, 102, 52, 53, 124, 72, 46, 103, 65]}, "tcl_top": [{"name": "Gentle Mates", "link": "https://www.youtube.com/@teamgentlemates", "plat": "YouTube", "country": "法国", "fl": 512000.0, "n": 13, "mx": 4207659.0, "best": "https://www.youtube.com/watch?v=VFLvTfQ9Wi8"}, {"name": "Le Progrès", "link": "https://www.tiktok.com/@le_progres_", "plat": "TikTok", "country": "法国", "fl": 361705.0, "n": 3, "mx": 3214087.0, "best": "https://tiktok.com/@tiktok/video/7589287254078623008"}, {"name": "Schliingeel", "link": "https://www.tiktok.com/@schliingeel", "plat": "TikTok", "country": "德国", "fl": 1481588.0, "n": 2, "mx": 2340884.0, "best": "https://tiktok.com/@tiktok/video/7656090806385642784"}, {"name": "saesi 💥", "link": "https://www.tiktok.com/@saesiii", "plat": "TikTok", "country": "西班牙", "fl": 5241872.0, "n": 2, "mx": 1917218.0, "best": "https://tiktok.com/@tiktok/video/7657641549597035798"}, {"name": "Deborah Ottaiano", "link": "https://www.instagram.com/deborah_sweethome", "plat": "Instagram", "country": "意大利", "fl": 385041.0, "n": 1, "mx": 1899536.0, "best": "https://www.instagram.com/p/DU_I5gKCLZB"}, {"name": "milanobelladadio", "link": "https://www.instagram.com/milanobelladadio", "plat": "Instagram", "country": "意大利", "fl": 529270.0, "n": 1, "mx": 1877378.0, "best": "https://www.instagram.com/p/DR7otCyjMX_"}, {"name": "Salina I Twitch Streamer", "link": "https://www.tiktok.com/@salinavdl", "plat": "TikTok", "country": "荷兰", "fl": 20546.0, "n": 2, "mx": 1712466.0, "best": "https://tiktok.com/@tiktok/video/7608228833539542304"}, {"name": "Nicola Liviero", "link": "https://www.tiktok.com/@nicolaliviero", "plat": "TikTok", "country": "意大利", "fl": 43245.0, "n": 1, "mx": 1634828.0, "best": "https://tiktok.com/@tiktok/video/7605875696740617494"}, {"name": "Simply AV", "link": "https://www.youtube.com/@16ktv", "plat": "YouTube", "country": "英国", "fl": 185000.0, "n": 6, "mx": 1540399.0, "best": "https://www.youtube.com/watch?v=WSJoX37QlZM"}, {"name": "Kayou & Kei Family", "link": "https://www.youtube.com/@kayouandkeifamily", "plat": "YouTube", "country": "法国", "fl": 626000.0, "n": 1, "mx": 1517845.0, "best": "https://www.youtube.com/watch?v=24_obBRpwNg"}, {"name": "Luca Hatake Tech", "link": "https://www.tiktok.com/@lucahataketech", "plat": "TikTok", "country": "意大利", "fl": 102088.0, "n": 2, "mx": 1436074.0, "best": "https://tiktok.com/@tiktok/video/7605559351318777110"}, {"name": "saesi ⚡️", "link": "https://www.instagram.com/saesi", "plat": "Instagram", "country": "西班牙", "fl": 219830.0, "n": 2, "mx": 1410863.0, "best": "https://www.instagram.com/p/DZ5iYquuH1X"}, {"name": "ele", "link": "https://www.tiktok.com/@eleonora.marcucci", "plat": "TikTok", "country": "意大利", "fl": 66121.0, "n": 1, "mx": 1332883.0, "best": "https://tiktok.com/@tiktok/video/7604387081426570518"}, {"name": "HDTVTest", "link": "https://www.youtube.com/@hdtvtest", "plat": "YouTube", "country": "英国", "fl": 630000.0, "n": 13, "mx": 1029747.0, "best": "https://www.youtube.com/watch?v=n8W8DCiqAqY"}, {"name": "ID_TechNL", "link": "https://www.tiktok.com/@id_technl", "plat": "TikTok", "country": "荷兰", "fl": 381457.0, "n": 1, "mx": 1013006.0, "best": "https://tiktok.com/@tiktok/video/7576300609930841376"}], "regions": ["英国", "法国", "德国", "意大利", "西班牙", "波兰", "荷比", "北欧", "中欧", "中东欧", "南欧"]};
+const $ = s => document.querySelector(s);
+const fmt = n => n==null?'—':n>=1e8?(n/1e8).toFixed(1)+'亿':n>=1e4?(n/1e4).toFixed(n>=1e5?0:1)+'万':Math.round(n).toLocaleString();
+const pct = x => (x*100).toFixed(0)+'%';
+const BR = ['TCL','Hisense','Samsung','LG','Sony'];
+const BC = {TCL:'var(--s1)',Hisense:'var(--s2)',Samsung:'var(--s3)',LG:'var(--s4)',Sony:'var(--s5)'};
+const PL = ['YouTube','Instagram','TikTok'];
+const PC = {YouTube:'var(--s1)',Instagram:'var(--s2)',TikTok:'var(--s3)'};
+const tip = $('#tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;const x=Math.min(e.clientX+14,innerWidth-300);tip.style.left=x+'px';tip.style.top=(e.clientY+14)+'px'}
+function hideTip(){tip.style.opacity=0}
+function bindTips(root){root.querySelectorAll('[data-tip]').forEach(el=>{el.addEventListener('mousemove',e=>showTip(e,el.dataset.tip));el.addEventListener('mouseleave',hideTip)})}
+const legend = (el,items)=>{el.innerHTML=items.map(([n,c])=>`<span><i style="background:${c}"></i>${n}</span>`).join('')};
+
+$('#m-period').textContent = '统计周期 '+D.kpi.period; $('#f-period').textContent = D.kpi.period;
+
+// 01 KPIs
+const k=D.kpi;
+$('#kpis').innerHTML=[
+ [k.eu_videos.toLocaleString(),'欧洲内容条数','5 个品牌 × 3 个平台'],
+ [k.eu_creators.toLocaleString(),'欧洲合作博主','TCL 及 4 个竞品'],
+ [k.countries,'覆盖欧洲国家','11 个国家/区域分组'],
+ [fmt(k.eu_views),'欧洲内容总曝光','近 12 个月'],
+].map(([v,l,d])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div><div class="d">${d}</div></div>`).join('');
+
+// 02 heatmap region share by brand
+(function(){
+  const R=D.regions; const max=Math.max(...D.brands.flatMap(b=>R.map(r=>b.region_share[r])));
+  const step=v=>{const t=v/max;return t<.04?'--seq-0':t<.2?'--seq-1':t<.4?'--seq-2':t<.6?'--seq-3':t<.8?'--seq-4':'--seq-5'};
+  const ink=v=>v/max>=.6?'#fff':'var(--ink)';
+  let h='<table class="heat"><tr><th></th>'+BR.map(b=>`<th class="num">${b}</th>`).join('')+'</tr>';
+  R.forEach(r=>{h+=`<tr><th>${r}</th>`+D.brands.map(b=>{const v=b.region_share[r];return `<td class="c" style="background:var(${step(v)});color:${ink(v)}" data-tip="<b>${b.brand} · ${r}</b><br>占该品牌欧洲博主 ${pct(v)}">${pct(v)}</td>`}).join('')+'</tr>'});
+  $('#heat').innerHTML=h+'</table>'; bindTips($('#heat'));
+})();
+
+// grouped horizontal bars helper
+function hbars(el,rows,series,colors,opts={}){
+  const W=el.clientWidth||520, lw=opts.lw||70, rh=opts.rh||16, gap=opts.gap||3, grp=series.length*(rh+gap)+12;
+  const H=rows.length*grp+8, max=opts.max||Math.max(...rows.flatMap(r=>series.map(s=>r.v[s]||0)))*1.08, iw=W-lw-50;
+  let s=`<svg width="${W}" height="${H}" role="img">`;
+  rows.forEach((r,i)=>{const y0=i*grp+4; s+=`<text class="lbl" x="0" y="${y0+series.length*(rh+gap)/2+4}">${r.k}</text>`;
+    series.forEach((se,j)=>{const v=r.v[se]; const y=y0+j*(rh+gap); const w=v==null?0:Math.max(2,v/max*iw);
+      s+=`<rect class="bar-bg" x="${lw}" y="${y}" width="${iw}" height="${rh}" rx="4"/>`;
+      if(v!=null) s+=`<rect x="${lw}" y="${y}" width="${w}" height="${rh}" rx="4" fill="${colors[se]}" data-tip="<b>${r.k} · ${se}</b><br>${opts.tf?opts.tf(v):v}"/>`+`<text x="${lw+w+6}" y="${y+rh-4}">${opts.tf?opts.tf(v):v}</text>`;
+      else s+=`<text x="${lw+6}" y="${y+rh-4}" class="muted">样本不足</text>`;});});
+  el.innerHTML=s+'</svg>'; bindTips(el);
+}
+legend($('#plat-leg'),PL.map(p=>[p,PC[p]]));
+hbars($('#platmix'),D.brands.map(b=>({k:b.brand,v:b.plat_share})),PL,PC,{tf:pct,max:0.6});
+const TAGS=['电视/家庭影院','游戏','手机/数码','家电/智能家居','测评/开箱','生活方式/家居'];
+legend($('#cm-leg'),BR.map(b=>[b,BC[b]]));
+hbars($('#cmix'),TAGS.map(t=>({k:t,v:Object.fromEntries(BR.map(b=>[b,D.content_mix[b][t]]))})),BR,BC,{tf:pct,lw:96,rh:11,gap:2});
+(function(){
+  const tcl=D.brands.find(b=>b.brand==='TCL'), his=D.brands.find(b=>b.brand==='Hisense');
+  const ukT=tcl.region_share['英国'], ukAvg=D.brands.filter(b=>b.brand!=='TCL').reduce((a,b)=>a+b.region_share['英国'],0)/4;
+  const cm=D.content_mix, tv=b=>pct(cm[b]['电视/家庭影院']);
+  $('#ins2').innerHTML=`<b>关键发现：</b>法国、德国、意大利是各品牌共同的重点市场；TCL 在英国的博主占比为 ${pct(ukT)}，低于竞品平均 ${pct(ukAvg)}，英国是 TCL 布局最薄弱的重点市场。内容方向上，电视品类的直接竞争来自 Hisense（电视内容占 ${tv('Hisense')}）与 LG（${tv('LG')}），TCL 为 ${tv('TCL')}；Samsung 以手机数码为主（${pct(cm.Samsung['手机/数码'])}），Sony 偏游戏（${pct(cm.Sony['游戏'])}），两者的电视内容博主重叠度较低，可作为 TCL 的增量资源。`;
+})();
+
+// 03 TCL
+const t=D.tcl;
+$('#tcl-kpi').innerHTML=[[t.creators,'欧洲合作博主'],[t.videos.toLocaleString(),'欧洲内容条数'],[fmt(t.views),'欧洲内容总曝光']].map(([v,l])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+hbars($('#tcl-region'),D.regions.map(r=>({k:r,v:{n:t.region[r]}})),['n'],{n:'var(--s1)'},{rh:14,gap:0,tf:v=>v+' 位'});
+(function(){
+  const el=$('#tcl-trend'),W=el.clientWidth||520,H=240,l=36,b=28,top=12,iw=W-l-12,ih=H-b-top,M=D.months,v=t.trend,max=Math.max(...v)*1.15;
+  const x=i=>l+i*iw/(M.length-1), y=n=>top+ih-n/max*ih;
+  let s=`<svg width="${W}" height="${H}">`;
+  [0,.5,1].forEach(f=>{const yy=top+ih-f*ih;s+=`<line x1="${l}" x2="${W-12}" y1="${yy}" y2="${yy}" stroke="var(--line)"/><text x="${l-6}" y="${yy+4}" text-anchor="end">${Math.round(f*max)}</text>`});
+  s+=`<path d="M${v.map((n,i)=>x(i)+','+y(n)).join('L')}" fill="none" stroke="var(--s1)" stroke-width="2"/>`;
+  v.forEach((n,i)=>{s+=`<circle cx="${x(i)}" cy="${y(n)}" r="4" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/><rect x="${x(i)-iw/M.length/2}" y="${top}" width="${iw/M.length}" height="${ih}" fill="transparent" data-tip="<b>${M[i]}</b><br>${n} 条内容"/>`;
+    if(i%2===0) s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${M[i].slice(2).replace('-','.')}</text>`});
+  el.innerHTML=s+'</svg>'; bindTips(el);
+})();
+const plat=p=>`<span class="pill ${p==='YouTube'?'yt':p==='Instagram'?'ig':'tt'}">${p}</span>`;
+$('#tcl-top').innerHTML='<tr><th>博主</th><th>平台</th><th>国家</th><th class="num">粉丝</th><th class="num">TCL 内容</th><th class="num">最高曝光</th></tr>'+
+ D.tcl_top.map(r=>`<tr><td class="name"><a href="${r.link}" target="_blank" rel="noopener">${r.name}</a></td><td>${plat(r.plat)}</td><td style="white-space:nowrap">${r.country}</td><td class="num">${fmt(r.fl)}</td><td class="num">${r.n}</td><td class="num"><a href="${r.best}" target="_blank" rel="noopener">${fmt(r.mx)}</a></td></tr>`).join('');
+(function(){
+  const pk=v=>v.indexOf(Math.max(...v)); const M=D.months, v=t.trend;
+  const top3=Object.entries(t.region).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>x[0]).join('、');
+  $('#ins3').innerHTML=`<b>关键发现：</b>TCL 欧洲博主集中在${top3}；发布高峰出现在 ${M[pk(v)]}（黑五）与 2026-06（世界杯），4–5 月与 8 月明显回落；建议在大促与赛事节点前提前锁定档期，淡季以常态化内容维持声量。Instagram 博主数最多（${t.plat.Instagram} 位），YouTube 仅 ${t.plat.YouTube} 位，长视频深度测评仍有补充空间。`;
+})();
+
+// 04 opportunity
+const o=D.overlap;
+$('#opp-kpi').innerHTML=[[o.comp_only.toLocaleString(),'仅与竞品合作的欧洲博主'],[o.per_brand_not_tcl.Samsung,'Samsung 合作、未合作 TCL'],[o.per_brand_not_tcl.Sony,'Sony 合作、未合作 TCL'],[o.per_brand_not_tcl.Hisense,'Hisense 合作、未合作 TCL']].map(([v,l])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+$('#opp').innerHTML='<tr><th>博主</th><th>平台</th><th>国家</th><th class="num">粉丝</th><th>合作品牌</th><th class="num">电视内容</th><th class="num">播放中位数</th><th class="num">最高曝光</th></tr>'+
+ D.opp.map(r=>`<tr><td class="name"><a href="${r.link}" target="_blank" rel="noopener">${r.name}</a></td><td>${plat(r.plat)}</td><td style="white-space:nowrap">${r.country}</td><td class="num">${fmt(r.fl)}</td><td>${r.brands.split('/').map(b=>`<span class="pill">${b}</span>`).join('')}</td><td class="num">${r.tv}</td><td class="num">${fmt(r.med)}</td><td class="num"><a href="${r.best}" target="_blank" rel="noopener">${fmt(r.mx)}</a></td></tr>`).join('');
+
+// 05 efficiency heat
+(function(){
+  const R=D.regions; const vals=R.flatMap(r=>PL.map(p=>D.plat_eff[r][p]).filter(v=>v!=null)); const lmax=Math.log10(Math.max(...vals)), lmin=Math.log10(Math.min(...vals));
+  const step=v=>{const t=(Math.log10(v)-lmin)/(lmax-lmin);return t<.2?'--seq-1':t<.4?'--seq-2':t<.6?'--seq-3':t<.8?'--seq-4':'--seq-5'};
+  let h='<table class="heat"><tr><th></th>'+PL.map(p=>`<th class="num">${p}</th>`).join('')+'</tr>';
+  R.forEach(r=>{h+=`<tr><th>${r}</th>`+PL.map(p=>{const v=D.plat_eff[r][p],n=D.plat_eff_n[r][p];if(v==null)return `<td class="c muted" style="background:var(--seq-0)">—</td>`;const s=step(v);return `<td class="c" style="background:var(${s});color:${['--seq-4','--seq-5'].includes(s)?'#fff':'var(--ink)'}" data-tip="<b>${r} · ${p}</b><br>播放中位数 ${fmt(v)}<br>样本 ${n} 条">${fmt(v)}</td>`}).join('')+'</tr>'});
+  $('#eff').innerHTML=h+'</table>'; bindTips($('#eff'));
+})();
+legend($('#tier-leg'),PL.map(p=>[p,PC[p]]));
+hbars($('#tier'),D.tier_labels.map(tl=>({k:tl,v:Object.fromEntries(PL.map(p=>[p,D.tier_med[p][tl]]))})),PL,PC,{tf:fmt,lw:72});
+(function(){
+  const e=D.plat_eff;
+  $('#ins5').innerHTML=`<b>关键发现：</b>YouTube 单条播放在英国（${fmt(e['英国'].YouTube)}）、法国（${fmt(e['法国'].YouTube)}）、意大利（${fmt(e['意大利'].YouTube)}）表现最稳，适合承担新品深度测评与长线技术教育；TikTok 在德国（${fmt(e['德国'].TikTok)}）、西班牙（${fmt(e['西班牙'].TikTok)}）、中欧表现突出，适合大促节点的种草放量；Instagram 中位数整体偏低，更适合作为生活方式场景与大促的补充曝光。粉丝层级方面，YouTube 5–30 万粉中腰部博主的播放中位数约为百万粉头部的 ${pct(D.tier_med.YouTube['5–10万']/D.tier_med.YouTube['100万+'])}–${pct(D.tier_med.YouTube['10–30万']/D.tier_med.YouTube['100万+'])}，性价比突出；Instagram 与 TikTok 的头部放大效应更明显，适合用少量头部博主拉高声量。`;
+})();
+
+
+// theme
+$('#themeBtn').onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=cur==='dark'?'light':'dark'};
+function watermark(){document.getElementById('wm')?.remove();const c=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#15212c';const t='by 卧兔 AM小雨 · 数据来源 WOTOHUB';const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='310' height='180'><text x='12' y='106' transform='rotate(-20 155 90)' font-family='sans-serif' font-size='15' fill='${c}' fill-opacity='0.08'>${t}</text></svg>`;const d=document.createElement('div');d.id='wm';d.setAttribute('aria-hidden','true');d.style.cssText=`position:fixed;inset:0;pointer-events:none;z-index:50;background-image:url("data:image/svg+xml,${encodeURIComponent(svg)}")`;document.body.appendChild(d)}
+watermark();try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',watermark);new MutationObserver(watermark).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
+</script>
+</body>
+</html>
